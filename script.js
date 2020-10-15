@@ -26,6 +26,8 @@
     nextBtn.addEventListener('click', nextSong);
     //timeupdate
     music.addEventListener('timeupdate', updateProgressBar);
+    //change progress during song play
+    progressContainer.addEventListener('click', setProgressBar);
   }
 
   //check if playing
@@ -145,6 +147,15 @@
       }
       currentTimeEl.textContent = `${currentMinutes}:${currentSeconds}`;
     }
+  }
+
+  function setProgressBar(e){
+      const width = this.clientWidth;
+      const clickX = e.offsetX;
+      const {duration} = music;
+      music.currentTime = (clickX / width) * duration; 
+
+    
   }
 
   //
