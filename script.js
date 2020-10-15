@@ -36,7 +36,7 @@
         {
             name: 'metric-1',
             displayName: 'Heaven\'s Grace',
-            artist: 'Brody',
+            artist: 'Brody Woof Woof',
         }
     ]
 
@@ -77,5 +77,6 @@
         image.src = `img/${song.name}.jpg`;
     }
 
+    loadSong(songs[3])
     //
 })();
