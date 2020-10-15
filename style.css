@@ -14,13 +14,13 @@ body {
   align-items: center;
   font-family: 'Sansita Swashed', cursive;
   font-size: 12px;
-  color: #fff;
+  color: rgb(14, 13, 13);
 }
 
 .player-container {
   height: 480px;
   width: 400px;
-  background: #b6adad;
+  background: #fafafac2;
   border-radius: 20px;
   box-shadow: 0 15px 30px 15px rgb(255, 255, 255);
 }
@@ -89,13 +89,19 @@ h3 {
 }
 
 .fas {
-  font-size: 30px;
+  font-size: 20px;
   color: rgb(129, 129, 129);
-  margin-right: 30px;
+  margin-right: 40px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.fas:hover{
+  filter: brightness(50%)
 }
 
 .main-button {
-  font-size: 40px;
+  font-size: 30px;
   position: relative;
   top: 3px;
 }
