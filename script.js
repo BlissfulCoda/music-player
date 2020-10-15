@@ -4,6 +4,8 @@
   const title = document.querySelector('#title');
   const artist = document.querySelector('#artist');
   const music = document.querySelector('audio');
+  const progressContainer = document.getElementById('progress-container');
+  const progress = document.querySelector('#progress');
   const prevBtn = document.querySelector('#prev');
   const playBtn = document.querySelector('#play');
   const nextBtn = document.querySelector('#next');
@@ -20,7 +22,12 @@
     prevBtn.addEventListener('click', prevSong);
     //next Song
     nextBtn.addEventListener('click', nextSong);
+    //timeupdate
+    music.addEventListener('timeupdate', updateProgressBar);
   }
+
+  //check if playing
+  let isPlaying = false;
 
   //Music
   const songs = [
@@ -45,9 +52,6 @@
       artist: 'Brody Woof Woof'
     }
   ];
-
-  //check if playing
-  let isPlaying = false;
   //play
   function playSong() {
     isPlaying = true;
@@ -112,6 +116,16 @@
       songIndex = 0;
     } else if (songIndex < 0) {
       songIndex = songs.length - 1;
+    }
+  }
+
+  //Update the Music Bar
+  function updateProgressBar(e){
+    if(isPlaying){
+        const {duration, currentTime} = e.srcElement;
+        console.log(duration, currentTime);
+        const progressPercent = (currentTime / duration) * 100;
+        progress.style.width = `${progressPercent}%`
     }
   }
 
