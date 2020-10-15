@@ -90,28 +90,30 @@
 
   loadSong(songs[songIndex]);
 
-    //Prev Song
-    function prevSong(){
-        songIndex--;
-        if(songIndex < 0){
-            songIndex = songs.length - 1;
-        } 
-        console.log(songIndex);
-        loadSong(songs[songIndex]);
-        playSong();
-    }
-
-  //Next Song
-  function nextSong(){
-      songIndex++;
-      if(songIndex > songs.length - 1){
-          songIndex = 0;
-      }
-      console.log(songIndex);
-      loadSong(songs[songIndex]);
-      playSong();
+  //Prev Song
+  function prevSong() {
+    songIndex--;
+    loopSongs();
+    loadSong(songs[songIndex]);
+    playSong();
   }
 
+  //Next Song
+  function nextSong() {
+    songIndex++;
+    loopSongs();
+    loadSong(songs[songIndex]);
+    playSong();
+  }
+
+  //check Song
+  function loopSongs() {
+    if (songIndex > songs.length - 1) {
+      songIndex = 0;
+    } else if (songIndex < 0) {
+      songIndex = songs.length - 1;
+    }
+  }
 
   //
 })();
