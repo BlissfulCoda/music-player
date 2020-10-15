@@ -1,5 +1,8 @@
 (function(){
     //UI Variables
+    const image = document.querySelector('img');
+    const title = document.querySelector('#title');
+    const artist = document.querySelector('#artist')
     const music = document.querySelector('audio')
     const prevBtn = document.querySelector('#prev')
     const playBtn = document.querySelector('#play')
@@ -12,6 +15,30 @@
         //Play or Pause Listener
         playBtn.addEventListener('click', () => (isPlaying ? pauseSong() : playSong()));
     }
+
+    //Music
+    const songs = [
+        {
+            name: 'jacinto-1',
+            displayName: 'Fuck-Up Fixer',
+            artist: 'Sarah BD',
+        },
+        {
+            name: 'jacinto-12',
+            displayName: 'High Tides',
+            artist: 'Ro\'mie BZ',
+        },
+        {
+            name: 'jacinto-3',
+            displayName: 'Seventh Nation',
+            artist: 'Black Zeus',
+        },
+        {
+            name: 'metric-1',
+            displayName: 'Heaven\'s Grace',
+            artist: 'Brody',
+        }
+    ]
 
     //check if playing
     let isPlaying = false;
@@ -42,4 +69,13 @@
     return isPlaying ? playBtn.classList.replace('fa-play', 'fa-pause') : playBtn.classList.replace('fa-pause', 'fa-play');
     }
 
+    //load Song
+    function loadSong(song){
+        title.textContent = song.displayName;
+        artist.textContent = song.artist;
+        music.src = `music/${song.name}.mp3`;
+        image.src = `img/${song.name}.jpg`;
+    }
+
+    //
 })();
