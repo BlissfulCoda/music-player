@@ -29,7 +29,7 @@
     //change progress during song play
     progressContainer.addEventListener('click', setProgressBar);
     //Loop to next song when current one ends
-    music.addEventListener('ended', nextSong)
+    music.addEventListener('ended', nextSong);
   }
 
   //check if playing
@@ -39,7 +39,7 @@
   const songs = [
     {
       name: 'jacinto-1',
-      displayName: 'Fuck-Up Fixer',
+      displayName: 'F**k Up Fixer (BD Remix)',
       artist: 'Sarah BD'
     },
     {
@@ -151,13 +151,11 @@
     }
   }
 
-  function setProgressBar(e){
-      const width = this.clientWidth;
-      const clickX = e.offsetX;
-      const {duration} = music;
-      music.currentTime = (clickX / width) * duration; 
-
-    
+  function setProgressBar(e) {
+    const width = this.clientWidth;
+    const clickX = e.offsetX;
+    const { duration } = music;
+    music.currentTime = (clickX / width) * duration;
   }
 
   //
