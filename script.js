@@ -28,6 +28,8 @@
     music.addEventListener('timeupdate', updateProgressBar);
     //change progress during song play
     progressContainer.addEventListener('click', setProgressBar);
+    //Loop to next song when current one ends
+    music.addEventListener('ended', nextSong)
   }
 
   //check if playing
